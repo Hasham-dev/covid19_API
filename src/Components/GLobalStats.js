@@ -7,17 +7,21 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 1000,
     margin: "0 auto",
-    marginTop: 50
-
+    marginTop: 50,
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    backgroundColor:"#e1f5fe"
   },
   title:{
     color: '#3f51b5',
-    textTransform: "uppercase"
+    fontSize: "28px"
+  },
+  string:{
+    fontWeight:"bold",
+    fontSize:"25px"
   }
 }));
 
@@ -26,12 +30,12 @@ export default function GLobalStats() {
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch("https://api.thevirustracker.com/free-api?global=stats")
+      const response = await fetch("https://api.covid19api.com/summary")
       let data = await response.json();
 
       //Deleting extra source
-      delete data.results[0].source;
-      setGlobalDData(data.results[0])
+      setGlobalDData(data.Global)
+      console.log(data.Global)
     }
     getData();
   }, [])
@@ -49,7 +53,7 @@ export default function GLobalStats() {
                 <h3 className={classes.title}>
                   {key.replace(/_/g,' ')}
                 </h3>
-                <h3>{globalData[key]}</h3>
+                <h3 className={classes.string}>{globalData[key].toLocaleString("en-IN")}</h3>
               </Paper>
             </Grid>
 

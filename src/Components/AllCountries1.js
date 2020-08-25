@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common,
@@ -33,10 +32,36 @@ const useStyles = makeStyles({
     minWidth: 700,
   },
   head:{
-    background: "white !important",
+    background: "#64b5f6 !important",
+    position: "sticky",
     color: "black",
-    fontWeight:'bold',
-    textDecoration: 'underline'
+    fontWeight:'bolder',
+    textDecoration: 'underline',
+    fontSize: '25px !important' 
+  },
+  td1:{
+    fontWeight:"bold",
+    fontSize:"20px"
+  },
+  text_one:{
+    fontSize:'12px'
+  },
+  Table_Data:{
+    fontSize:"15px",
+    fontWeight: "bold"
+
+  },
+  Table_Data_Red:{
+    fontSize:"15px",
+    color: "red",
+    fontWeight: "bold"
+
+  },
+  Table_Data_Green:{
+    fontSize:"15px",
+    color: "#00c853",
+    fontWeight: "bold"
+
   }
 });
 
@@ -56,8 +81,8 @@ export default function AllCountries1() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
+              <Table className={classes.table} aria-label="customized table">
+        <TableHead >
           <TableRow className={classes.head}>
             <StyledTableCell>Sr. No</StyledTableCell>
             <StyledTableCell align="left">Country Name</StyledTableCell>
@@ -69,15 +94,15 @@ export default function AllCountries1() {
         </TableHead>
         <TableBody>
         {globalData.map((key,ind)=> (
-            <StyledTableRow key={globalData[ind].title}>
+            <StyledTableRow key={globalData[ind].title} className={classes.text_one}>
               <StyledTableCell align="left">{globalData[ind].ourid}</StyledTableCell>
-              <StyledTableCell component="th" align="left" scope="row">
+              <StyledTableCell component="th" align="left" scope="row" className={classes.td1}>
               {globalData[ind].title}
               </StyledTableCell>
-              <StyledTableCell align="left">{globalData[ind].total_cases}</StyledTableCell>
-              <StyledTableCell align="left">{globalData[ind].total_recovered}</StyledTableCell>
-              <StyledTableCell align="left">{globalData[ind].total_deaths}</StyledTableCell>
-              <StyledTableCell align="left">{globalData[ind].total_active_cases}</StyledTableCell>
+              <StyledTableCell align="left" className={classes.Table_Data}>{globalData[ind].total_cases}</StyledTableCell>
+              <StyledTableCell align="left" className={classes.Table_Data_Green}>{globalData[ind].total_recovered}</StyledTableCell>
+              <StyledTableCell align="left" className={classes.Table_Data_Red}>{globalData[ind].total_deaths}</StyledTableCell>
+              <StyledTableCell align="left" className={classes.Table_Data_Red}>{globalData[ind].total_active_cases}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
