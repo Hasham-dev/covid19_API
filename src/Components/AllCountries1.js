@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     minWidth: 700,
   },
   head:{
-    background: "#64b5f6 !important",
+    background: "#e1f5fe !important",
     position: "sticky",
     color: "black",
     fontWeight:'bolder',
@@ -62,6 +62,10 @@ const useStyles = makeStyles({
     color: "#00c853",
     fontWeight: "bold"
 
+  },
+  Headed:{
+    fontWeight:"bolder",
+    fontSize:"15px"
   }
 });
 
@@ -84,12 +88,12 @@ export default function AllCountries1() {
               <Table className={classes.table} aria-label="customized table">
         <TableHead >
           <TableRow className={classes.head}>
-            <StyledTableCell>Sr. No</StyledTableCell>
-            <StyledTableCell align="left">Country Name</StyledTableCell>
-            <StyledTableCell align="left">Total Cases</StyledTableCell>
-            <StyledTableCell align="left">Total Recovered</StyledTableCell>
-            <StyledTableCell align="left">Total Deadth</StyledTableCell>
-            <StyledTableCell align="left">Total Active Cases</StyledTableCell>
+            <StyledTableCell className={classes.Headed}>Sr. No</StyledTableCell>
+            <StyledTableCell align="left" className={classes.Headed}>Country Name</StyledTableCell>
+            <StyledTableCell align="left" className={classes.Headed}>Total Cases</StyledTableCell>
+            <StyledTableCell align="left" className={classes.Headed}>Total Recovered</StyledTableCell>
+            <StyledTableCell align="left" className={classes.Headed}>Total Deadths</StyledTableCell>
+            <StyledTableCell align="left" className={classes.Headed}>Total Active Cases</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
